@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  qrcode-generator:
+    build: .
+    ports:
+      - "80:80"
+      - "9000:9000"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - qrcode-network
+
+networks:
+  qrcode-network:
+    driver: bridge

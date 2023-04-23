@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Home from './components/Home';
+import QRCodeForm from './components/QRCodeForm';
 
 function App() {
+  const [generatedQRCode, setGeneratedQRCode] = useState(null);
+  const [showQRForm, setShowQRForm] = useState(false);
+
+  const toggleQRForm = () => {
+    setShowQRForm(!showQRForm);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="app-container">
+        <Home className={showQRForm ? 'shrink' : ''} />
+        {!showQRForm && (
+          <button className="qr-toggle-button" onClick={toggleQRForm}>
+            Show QR Code Generator
+          </button>
+        )}
+        <div className={`qr-form-container ${showQRForm ? 'visible' : 'hidden'}`}>
+          <QRCodeForm setGeneratedQRCode={setGeneratedQRCode} />
+        </div>
+        {generatedQRCode && (
+          <div className="qr-result">
+            <img src={generatedQRCode} alt="Generated QR Code" />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

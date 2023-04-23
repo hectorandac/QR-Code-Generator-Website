@@ -1,38 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  background-color: #f1f1f1;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 40px 60px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 400;
+  color: #666;
+}
+
+input {
+  height: 40px;
+  font-size: 16px;
+  padding: 0 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #999;
+}
+
+button {
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #007aff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  min-width: 220;
+  outline: none;
+  transition: background-color 0.2s ease-in-out;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: #005fcc;
+}
+
+button:active {
+  background-color: #004da8;
+}
+
 .App {
   text-align: center;
+  font-family: 'Arial', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.qr-form-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.qr-form-container.visible {
+  max-height: 500px; /* Adjust this value based on the height of your QR code form */
+}
+
+.qr-form-container.hidden {
+  max-height: 0;
+}
+
+.home.shrink .home-header {
+  margin-top: 0;
+  margin-bottom: 0;
+  transition: margin 0.5s ease-in-out;
+}
+
+.home.shrink .features {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.qr-toggle-button {
+  /* ... (previous styles) */
+  transition: all 0.5s ease-in-out;
+}
+
+.qr-toggle-button.hide {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.qr-result img {
+  max-width: 100%;
+  height: auto;
+  min-width: 320px;
+}
+
+.qr-result {
+  margin-top: 20px;
+}
+
+.api-websocket-section {
+  margin-top: 50px;
+}
+
+.api-websocket-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.api-websocket-section h3 {
+  font-size: 1.5rem;
+  margin: 30px 0 10px;
+}
+
+.api-websocket-section code {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-family: 'Courier New', Courier, monospace;
 }

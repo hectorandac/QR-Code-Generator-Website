@@ -1,0 +1,26 @@
+.home {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .home-header {
+    margin-bottom: 40px;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  
+  .feature {
+    width: 300px;
+    margin: 20px;
+  }
+  
+  .feature h2 {
+    margin-bottom: 10px;
+  }
+  
